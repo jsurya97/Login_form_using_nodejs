@@ -1,0 +1,87 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Responsive Login Template</title>
+    <link href="favicon.png" rel="icon" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/loginStyle.css" />
+  </head>
+  <body >
+    <nav class="navbar-inverse">
+      <div class="container-fluid"> 
+        <div class="navbar-header"> 
+          <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"> 
+            <span class="sr-only">Toggle navigation</span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button> 
+          <a href="#" class="navbar-brand">Impiger</a> 
+        </div> 
+        <div class="collapse navbar-collapse pull-right" id="navbar-collapse"> 
+          <ul class="nav navbar-nav"> 
+            <li>
+              <a href="#">Home</a>
+            </li> 
+            <li class="active">
+              <a href="#">Login</a>
+            </li> 
+            <li>
+              <a href="/users/register">Registration</a>
+            </li> 
+          </ul> 
+        </div> 
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12 col-md-offset-4 col-sm-offset-3">
+          <div class="form" style="background-color:lightblue">
+            <form action="/users/login" method="post">
+               <img class="image"  align="middle" src="/assert/Impiger.png" alt="Trulli">       
+              <div class="form-group">
+                    {{#if success_msg}}
+                        <div class="alert alert-success">{{success_msg}}</div>
+                    {{/if}}
+                    {{#if error_msg}}
+                        <div class="alert alert-danger">{{error_msg}}</div>
+                    {{/if}}
+                    {{#if error}}
+                        <div class="alert alert-danger">{{error}}</div>
+                    {{/if}}
+
+                       {{#if errors}}
+                    {{#each errors}}
+                       <div class="alert alert-danger" role="alert">
+                          {{this.msg}}
+                        </div>
+                    {{/each}}
+                  {{/if}}
+                 <input type="text" class="form-control" name="username" placeholder="Username" required="required">
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+              </div>
+              
+              <div class="form-group clearfix">
+                <label class="checkbox-inline pull-left"><input type="checkbox"> Remember me</label>
+                <button type="submit" class="btn btn-primary pull-right">Log in</button>
+              </div>
+              </form>
+              <div class="clearfix">
+                <a href="forgot-password.html" class="pull-left">Forgot Password?</a>
+                <a href="/users/register" class="pull-right">Create an Account</a>
+              </div>        
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-default navbar-fixed-bottom">
+      <div class="text-center footer">Copyright © 2018 Code Grope. All Right Reserved.</div>
+    </div>
+  </body>
+</html>

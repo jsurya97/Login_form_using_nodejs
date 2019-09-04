@@ -1,0 +1,93 @@
+
+<html>
+    <nav class="navbar-inverse">
+      <div class="container-fluid"> 
+        <div class="navbar-header"> 
+          <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"> 
+            <span class="sr-only">Toggle navigation</span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span> 
+          </button> 
+          <a href="#" class="navbar-brand">Impiger</a> 
+        </div> 
+        <div class="collapse navbar-collapse pull-right" id="navbar-collapse"> 
+          <ul class="nav navbar-nav"> 
+            <li>
+              <a href="#">Home</a>
+            </li> 
+            <li >
+              <a href="/users/login">logout</a>
+            </li> 
+            <li>
+              <a href="/users/register ">Create New</a>
+            </li> 
+            <li>
+            <form class="form-inline" style="padding-top: 8px" action="/users/search" method="POST" >
+              <input class="form-control mr-sm-2" type="text"  name="Search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+            </li>
+          </ul> 
+        </div> 
+      </div>
+    </nav>
+<section>
+  <!--for demo wrap-->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/css/list.css"/>
+  <body>
+    <h1>Employee List</h1>
+  <div class="tbl-header">
+    <table >
+      <thead>
+        <tr>
+          <th>USERNAME </th>
+              <th>EMAIL</th>
+             <th>PHONE </th>
+           <th>LAST UPDATE</th> 
+          <th>Option</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+           {{#each users}}
+        <tr>
+          <td>{{this.author.username}}</td>
+           <td>{{this.email}}</td>
+            <td>{{this.phone}}</td>
+            <td>{{this.date}}</td>   
+           <td>
+                <a href="/users/register/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="false" ></i></a>
+                <a href="/users/delete/{{this._id}}"><i class="fa fa-trash fa-lg" aria-hidden="true" onClick="return confirm('Are you sure you want to delete?')"></i></a>
+            </td>  
+        </tr>
+         {{/each}}
+      </tbody>
+    </table>
+  </div>
+          <div class="pagination" style="padding-left: 700px">
+  <a href="#">&laquo;</a>
+  <a href="/users/list/1">1</a>
+  <a href="/users/list/2">2</a>
+  <a href="/users/list/3">3</a>
+  <a href="/users/list/4">4</a>
+  <a href="/users/list/5">5</a>
+  <a href="/users/list/6">6</a>
+  <a href="#">&raquo;</a>
+</div>
+</section>
+
+<!-- follow me template -->
+<div class="made-with-love">
+  Made with
+  <i>♥</i> by
+  <a target="_blank" href="https://codepen.io/nikhil8krishnan">JayaSurya</a>
+</div>
+
+</body>
+</html> 
